@@ -35,6 +35,8 @@ public class MainActivity extends AppCompatActivity {
     String pp = "PP";
     String level;
 
+
+
     BluetoothAdapter btAdapter = BluetoothAdapter.getDefaultAdapter();
     //create object for hc05
     //set object hc05 equal to mac address for real HC05 module
@@ -53,6 +55,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
 
         final TextView coLevel=(TextView)findViewById(R.id.textViewCO);
         final TextView levelOutput=(TextView) findViewById(R.id.levelOutput);
@@ -165,7 +168,6 @@ public class MainActivity extends AppCompatActivity {
         if(intReadMessage < 40)
         {
             level = "low";
-
         }
 
         if(intReadMessage > 40 && intReadMessage < 70){
@@ -175,11 +177,17 @@ public class MainActivity extends AppCompatActivity {
         if(intReadMessage > 70 && intReadMessage < 100)
         {
             level = "High";
+            Vibrator v = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
+            v.vibrate(5000);
+            System.out.println("Vibrating warning 5 seconds");
         }
 
         if(intReadMessage > 100)
         {
             level = "Extreme";
+            Vibrator v = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
+            v.vibrate(10000);
+            System.out.println("Vibrating warning 10 seconds");
         }
 
         try {
