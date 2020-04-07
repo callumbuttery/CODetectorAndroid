@@ -167,7 +167,7 @@ public class MainActivity extends AppCompatActivity {
             e.printStackTrace();
         }
 
-        //intReadMessage = intReadMessage + 450;
+        intReadMessage = intReadMessage + 450;
 
         if(intReadMessage < 20)
         {
@@ -196,6 +196,8 @@ public class MainActivity extends AppCompatActivity {
         {
             level = "Very High";
             information = "CO poisoning symptoms after 2-3 hours, reduce level as soon as possible";
+            Vibrator v = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
+            v.vibrate(100);
 
         }
 
@@ -203,6 +205,8 @@ public class MainActivity extends AppCompatActivity {
         {
             level = "Unsafe";
             information = "Life threatening after 3 hours of exposure, reduce level as soon as possible";
+            Vibrator v = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
+            v.vibrate(200);
 
         }
 
@@ -210,6 +214,8 @@ public class MainActivity extends AppCompatActivity {
         {
             level = "Very Unsafe";
             information = "Dizziness, nausea, and convulsions within 45 minutes, reduce level immediately";
+            Vibrator v = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
+            v.vibrate(300);
 
         }
 
@@ -217,6 +223,8 @@ public class MainActivity extends AppCompatActivity {
         {
             level = "Extremely Unsafe";
             information = "Loss of consciousness at this level for longer than 1 hour";
+            Vibrator v = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
+            v.vibrate(400);
 
         }
 
@@ -224,6 +232,8 @@ public class MainActivity extends AppCompatActivity {
         {
             level = "Seek Medical attention";
             information = "Phone emergency services, seek fresh air";
+            Vibrator v = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
+            v.vibrate(500);
 
         }
 
