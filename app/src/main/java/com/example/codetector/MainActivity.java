@@ -22,7 +22,6 @@ import java.io.InputStream;
 import java.io.OutputStream;
 import java.util.UUID;
 
-
 import android.os.Vibrator;
 
 public class MainActivity extends AppCompatActivity {
@@ -34,6 +33,7 @@ public class MainActivity extends AppCompatActivity {
     int info;
     String pp = "PP";
     String level;
+    String information;
 
 
 
@@ -59,6 +59,7 @@ public class MainActivity extends AppCompatActivity {
 
         final TextView coLevel=(TextView)findViewById(R.id.textViewCO);
         final TextView levelOutput=(TextView) findViewById(R.id.levelOutput);
+        final TextView infoOutput=(TextView) findViewById(R.id.TextViewInformation);
 
 
         t=new Thread(){
@@ -81,7 +82,8 @@ public class MainActivity extends AppCompatActivity {
 
                                 ReceiveBtData();
                                 coLevel.setText(String.valueOf(readMessage + pp));
-                                levelOutput.setText(String.valueOf("Exposure "+ level));
+                                levelOutput.setText(String.valueOf("Exposure: "+ level));
+                                infoOutput.setText(String.valueOf(information));
 
 
 
@@ -165,29 +167,64 @@ public class MainActivity extends AppCompatActivity {
             e.printStackTrace();
         }
 
-        if(intReadMessage < 40)
+        //intReadMessage = intReadMessage + 450;
+
+        if(intReadMessage < 20)
         {
-            level = "low";
+            level = "Normal";
+            information = "PP level is normal";
         }
 
-        if(intReadMessage > 40 && intReadMessage < 70){
+        if(intReadMessage < 50 && intReadMessage > 20)
+        {
+            level = "Now";
+            information = "PP level is safe for exposure over 6-8 hours";
+        }
+
+        if(intReadMessage > 50 && intReadMessage < 60){
             level = "Moderate";
+            information = "Max workplace exposure";
         }
 
-        if(intReadMessage > 70 && intReadMessage < 100)
+        if(intReadMessage > 60 && intReadMessage < 125)
         {
             level = "High";
-            Vibrator v = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
-            v.vibrate(5000);
-            System.out.println("Vibrating warning 5 seconds");
+            information = "Headache after 1-2 hours";
         }
 
-        if(intReadMessage > 100)
+        if(intReadMessage > 125 && intReadMessage < 225)
         {
-            level = "Extreme";
-            Vibrator v = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
-            v.vibrate(10000);
-            System.out.println("Vibrating warning 10 seconds");
+            level = "Very High";
+            information = "CO poisoning symptoms after 2-3 hours, reduce level as soon as possible";
+
+        }
+
+        if(intReadMessage > 225 && intReadMessage < 425)
+        {
+            level = "Unsafe";
+            information = "Life threatening after 3 hours of exposure, reduce level as soon as possible";
+
+        }
+
+        if(intReadMessage > 425 && intReadMessage < 900)
+        {
+            level = "Very Unsafe";
+            information = "Dizziness, nausea, and convulsions within 45 minutes, reduce level immediately";
+
+        }
+
+        if(intReadMessage > 900 && intReadMessage < 1100)
+        {
+            level = "Extremely Unsafe";
+            information = "Loss of consciousness at this level for longer than 1 hour";
+
+        }
+
+        if(intReadMessage > 1100)
+        {
+            level = "Seek Medical attention";
+            information = "Phone emergency services, seek fresh air";
+
         }
 
         try {

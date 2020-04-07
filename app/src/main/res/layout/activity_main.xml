@@ -13,9 +13,9 @@
         android:layout_marginLeft="16dp"
         android:layout_marginTop="24dp"
         android:layout_marginRight="16dp"
-        android:text="Carbon Monoxide sensor"
+        android:text="Carbon Monoxide Monitor"
         android:textColor="@android:color/holo_blue_light"
-        android:textSize="35sp"
+        android:textSize="60sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
@@ -28,46 +28,55 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="160dp"
-        android:layout_marginTop="400dp"
         android:layout_marginEnd="160dp"
-        android:layout_marginBottom="300dp"
+        android:layout_marginBottom="116dp"
         android:gravity="center"
         android:onClick="onStart"
         android:text="Start"
+        android:textSize="40sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView2"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
         android:id="@+id/textViewCO"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="176dp"
-        android:layout_marginTop="260dp"
+        android:layout_marginTop="124dp"
         android:layout_marginEnd="177dp"
-        android:layout_marginBottom="170dp"
-        android:text="Press Start"
+        android:text="Press start and wait"
+        android:textColor="@android:color/holo_red_light"
         android:textSize="60sp"
-        app:layout_constraintBottom_toTopOf="@+id/button3"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView2"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintTop_toBottomOf="@+id/textView2" />
 
     <TextView
         android:id="@+id/levelOutput"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="178dp"
-        android:layout_marginTop="445dp"
+        android:layout_marginTop="630dp"
         android:layout_marginEnd="174dp"
-        android:layout_marginBottom="136dp"
+        android:textColor="@android:color/holo_red_light"
         android:textSize="60sp"
-        app:layout_constraintBottom_toTopOf="@+id/button3"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.508"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView2" />
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/TextViewInformation"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="208dp"
+        android:layout_marginEnd="203dp"
+        android:layout_marginBottom="248dp"
+        android:textColor="@android:color/holo_purple"
+        android:textSize="30sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
