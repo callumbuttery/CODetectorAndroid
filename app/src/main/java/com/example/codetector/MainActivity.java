@@ -1,28 +1,19 @@
 package com.example.codetector;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.bluetooth.BluetoothAdapter;
 import android.bluetooth.BluetoothDevice;
 import android.bluetooth.BluetoothSocket;
 import android.content.Context;
-import android.icu.util.Output;
-import android.os.Build;
 import android.os.Bundle;
-import android.os.VibrationEffect;
+import android.os.Vibrator;
 import android.view.View;
-import android.widget.Button;
-import android.widget.EditText;
 import android.widget.TextView;
-
-import org.w3c.dom.Text;
 
 import java.io.IOException;
 import java.io.InputStream;
-import java.io.OutputStream;
 import java.util.UUID;
 
-import android.os.Vibrator;
+import androidx.appcompat.app.AppCompatActivity;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -46,9 +37,9 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-    String readMessage = "A";
+    String readMessage;
 
-    //unique number for identifying all bluetooth serial boards
+    //unique number for identifying bluetooth module
     static final UUID mUUID = UUID.fromString("00001101-0000-1000-8000-00805F9B34FB");
 
     @Override
@@ -167,7 +158,7 @@ public class MainActivity extends AppCompatActivity {
             e.printStackTrace();
         }
 
-        intReadMessage = intReadMessage + 450;
+        //intReadMessage = intReadMessage + 450;
 
         if(intReadMessage < 20)
         {
@@ -177,7 +168,7 @@ public class MainActivity extends AppCompatActivity {
 
         if(intReadMessage < 50 && intReadMessage > 20)
         {
-            level = "Now";
+            level = "Low";
             information = "PP level is safe for exposure over 6-8 hours";
         }
 
@@ -244,16 +235,6 @@ public class MainActivity extends AppCompatActivity {
         }
 
 
-
-
-        //Close socket once done with code
-        //try {
-            //btSocket.close();
-            //Print connection
-           // System.out.println(btSocket.isConnected());
-        //} catch (IOException e) {
-            //e.printStackTrace();
-        //}
     }
 
 
